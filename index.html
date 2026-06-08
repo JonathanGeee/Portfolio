@@ -1069,44 +1069,52 @@
 </section>
 
 <!-- =================================================================== -->
-<!-- 屏 6.5 · 话题征集 -->
+<!-- 屏 7 · 尾页 · 致谢 -->
 <!-- =================================================================== -->
-<section id="s6.5" class="relative z-10 w-full flex items-center px-8 md:px-20 py-20">
-  <div class="max-w-[640px] mx-auto w-full">
-    <div class="reveal mb-10 text-center">
-      <h2 class="font-display font-bold italic" style="font-size: 32px;">你希望听我分享什么话题</h2>
-    </div>
+<section id="s7" class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center text-center px-8 py-20">
+  <!-- 底部复古渐变 -->
+  <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#C8612E]/20 via-[#2B5FD9]/10 to-transparent pointer-events-none"></div>
+  <div class="reveal max-w-2xl relative z-10">
+    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-12">感谢观看，请多指教</h2>
+    <p class="reveal font-display text-xl md:text-3xl italic mt-4 text-ink/80" data-delay="1">你希望我分享哪个话题？</p>
+    
+    <!-- 话题征集模块 -->
+    <div class="reveal mt-10" data-delay="2">
+      <div class="bg-panel border border-line rounded-2xl p-6" id="topic-container">
+        <!-- 选项列表 -->
+        <div class="space-y-3 mb-6" id="topic-options">
+          <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="1">
+            <div class="flex items-start gap-3 flex-1 text-left">
+              <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="1">
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题一：初创/独立小团队中设计师如何用AI交付设计方案</span>
+            </div>
+            <span class="font-mono text-sm text-muted vote-count" data-topic="1">0人</span>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="2">
+            <div class="flex items-start gap-3 flex-1 text-left">
+              <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="2">
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题二：如何用Coding工具做出高质量符合设计规范的设计方案</span>
+            </div>
+            <span class="font-mono text-sm text-muted vote-count" data-topic="2">0人</span>
+          </label>
+          <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="3">
+            <div class="flex items-start gap-3 flex-1 text-left">
+              <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="3">
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题三：个人使用AI高效、省钱的野路子</span>
+            </div>
+            <span class="font-mono text-sm text-muted vote-count" data-topic="3">0人</span>
+          </label>
+        </div>
 
-    <div class="reveal bg-panel border border-line rounded-2xl p-8 text-center" data-delay="1" id="topic-container">
-      <!-- 选项列表 -->
-      <div class="space-y-4 mb-8" id="topic-options">
-        <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="1">
-          <div class="flex items-start gap-3 flex-1">
-            <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="1">
-            <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">初创/独立小团队中设计师如何用AI交付设计方案</span>
-          </div>
-          <span class="font-mono text-sm text-muted vote-count" data-topic="1">0人</span>
-        </label>
-        <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="2">
-          <div class="flex items-start gap-3 flex-1">
-            <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="2">
-            <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">如何用Coding工具做出高质量符合设计规范的设计方案</span>
-          </div>
-          <span class="font-mono text-sm text-muted vote-count" data-topic="2">0人</span>
-        </label>
-        <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="3">
-          <div class="flex items-start gap-3 flex-1">
-            <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="3">
-            <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">个人使用AI高效、省钱的野路子</span>
-          </div>
-          <span class="font-mono text-sm text-muted vote-count" data-topic="3">0人</span>
-        </label>
+        <!-- 确认按钮 -->
+        <button id="confirm-topics" class="inline-flex items-center bg-ink text-cream font-mono text-sm px-7 py-3.5 rounded-full hover:opacity-85 transition">
+          确认选择 →
+        </button>
       </div>
-
-      <!-- 确认按钮 -->
-      <button id="confirm-topics" class="inline-flex items-center bg-ink text-cream font-mono text-sm px-7 py-3.5 rounded-full hover:opacity-85 transition">
-        确认选择 →
-      </button>
+    </div>
+    
+    <div class="reveal mt-12 flex items-center justify-center gap-4 flex-wrap" data-delay="3">
+      <a href="#s1" class="inline-flex items-center border border-ink text-ink font-mono text-sm px-7 py-3.5 rounded-full hover:bg-ink hover:text-cream transition">↑ 回到顶部</a>
     </div>
   </div>
 
@@ -1190,23 +1198,6 @@
       }
     });
   </script>
-</section>
-
-<!-- =================================================================== -->
-<!-- 屏 7 · 尾页 · 致谢 -->
-<!-- =================================================================== -->
-<section id="s7" class="relative z-10 min-h-screen w-full flex flex-col items-center justify-center text-center px-8 py-20">
-  <!-- 底部复古渐变 -->
-  <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#C8612E]/20 via-[#2B5FD9]/10 to-transparent pointer-events-none"></div>
-  <div class="reveal max-w-2xl relative z-10">
-    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight">感谢观看</h2>
-    <p class="reveal font-display text-xl md:text-3xl italic mt-4 text-ink/80" data-delay="1">期待和大家的合作，请多指教。</p>
-    <p class="reveal mt-10 text-lg md:text-xl text-ink/75 leading-relaxed" data-delay="2">
-    </p>
-    <div class="reveal mt-12 flex items-center justify-center gap-4 flex-wrap" data-delay="3">
-      <a href="#s1" class="inline-flex items-center border border-ink text-ink font-mono text-sm px-7 py-3.5 rounded-full hover:bg-ink hover:text-cream transition">↑ 回到顶部</a>
-    </div>
-  </div>
 </section>
 
 <!-- =================================================================== -->
