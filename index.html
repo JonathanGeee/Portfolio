@@ -16,6 +16,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&family=Space+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
+<!-- Confetti 库 -->
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
 <script>
   // ===== Tailwind 主题：奶油米底色 / 墨黑 / 复古配色 =====
@@ -1075,32 +1077,32 @@
   <!-- 底部复古渐变 -->
   <div class="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-[#C8612E]/20 via-[#2B5FD9]/10 to-transparent pointer-events-none"></div>
   <div class="reveal max-w-2xl relative z-10">
-    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-12">感谢观看，请多指教</h2>
-    <p class="reveal font-display text-xl md:text-3xl italic mt-4 text-ink/80" data-delay="1">你希望我分享哪个话题？</p>
-    
+    <h2 class="font-display text-4xl md:text-5xl font-bold leading-tight mb-12" style="padding-top: 0px; padding-bottom: 0px;">感谢观看</h2>
     <!-- 话题征集模块 -->
-    <div class="reveal mt-10" data-delay="2">
+    <div class="reveal mt-10" data-delay="2" style="padding-top: 23px; padding-bottom: 23px;">
       <div class="bg-panel border border-line rounded-2xl p-6" id="topic-container">
+        <!-- 投票标题 -->
+        <h4 class="font-display text-xl font-bold mb-6 text-center">你对以下哪个话题分享感兴趣？</h4>
         <!-- 选项列表 -->
         <div class="space-y-3 mb-6" id="topic-options">
           <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="1">
             <div class="flex items-start gap-3 flex-1 text-left">
               <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="1">
-              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题一：初创/独立小团队中设计师如何用AI交付设计方案</span>
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题一：初创/独立团队的AI设计流程是怎样的？</span>
             </div>
             <span class="font-mono text-sm text-muted vote-count" data-topic="1">0人</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="2">
             <div class="flex items-start gap-3 flex-1 text-left">
               <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="2">
-              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题二：如何用Coding工具做出高质量符合设计规范的设计方案</span>
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题二：如何让AI产出高质量符合规范的设计方案？</span>
             </div>
             <span class="font-mono text-sm text-muted vote-count" data-topic="2">0人</span>
           </label>
           <label class="flex items-start gap-3 cursor-pointer group topic-label" data-topic="3">
             <div class="flex items-start gap-3 flex-1 text-left">
               <input type="checkbox" class="topic-checkbox w-5 h-5 mt-0.5 accent-[#9B2D20] cursor-pointer" data-topic="3">
-              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题三：个人使用AI高效、省钱的野路子</span>
+              <span class="font-mono text-base text-ink group-hover:text-ink/80 transition">话题三：个人使用AI的邪修技巧有哪些？</span>
             </div>
             <span class="font-mono text-sm text-muted vote-count" data-topic="3">0人</span>
           </label>
@@ -1113,7 +1115,7 @@
       </div>
     </div>
     
-    <div class="reveal mt-12 flex items-center justify-center gap-4 flex-wrap" data-delay="3">
+    <div class="reveal mt-[90px] flex items-center justify-center gap-4 flex-wrap" data-delay="3">
       <a href="#s1" class="inline-flex items-center border border-ink text-ink font-mono text-sm px-7 py-3.5 rounded-full hover:bg-ink hover:text-cream transition">↑ 回到顶部</a>
     </div>
   </div>
@@ -1143,6 +1145,31 @@
       });
       
       if (selectedTopics.length > 0) {
+        // 撒花动效
+        var end = Date.now() + (15 * 1000); 
+        var colors = ['#C15621', '#FFDD86', '#FFFFFF']; 
+ 
+        (function frame() { 
+          confetti({ 
+            particleCount: 2, 
+            angle: 60, 
+            spread: 55, 
+            origin: { x: 0 }, 
+            colors: colors 
+          }); 
+          confetti({ 
+            particleCount: 2, 
+            angle: 120, 
+            spread: 55, 
+            origin: { x: 1 }, 
+            colors: colors 
+          }); 
+ 
+          if (Date.now() < end) { 
+            requestAnimationFrame(frame); 
+          } 
+        }());
+        
         // 本地存储选择结果
         localStorage.setItem('selectedTopics', JSON.stringify(selectedTopics));
         localStorage.setItem('voteCounts', JSON.stringify(voteCounts));
